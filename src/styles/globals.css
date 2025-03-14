@@ -1,0 +1,248 @@
+/* src/styles/globals.css */
+
+/* Tailwind CSS Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Gaya Kustom */
+
+/* Root Variables untuk Tema Terang dan Gelap */
+:root {
+  --background: #1a202c; /* Dark background for futuristic look */
+  --foreground: #e2e8f0; /* Light text color */
+  --accent: #0bc5ea; /* Cyan accent color */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --accent: #0bc5ea;
+  }
+}
+
+/* Body Styling */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+
+  /* Font Smoothing for Better Readability */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Keyframes untuk Animasi Fade In dan Slide Up */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kelas Animasi */
+.animate-fade {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-in-out forwards;
+}
+
+/* Efek Glow untuk Tombol */
+.btn-glow {
+  box-shadow: 0 0 15px rgba(11, 197, 234, 0.6);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(11, 197, 234, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Glow Border untuk Outer Box */
+.glow-border {
+  border: 2px solid transparent;
+  background-image: linear-gradient(var(--background), var(--background)),
+    linear-gradient(45deg, var(--accent), #6b46c1);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 0 10px rgba(11, 197, 234, 0.5);
+  transition: box-shadow 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+
+.glow-border:hover {
+  box-shadow: 0 0 20px rgba(11, 197, 234, 0.8);
+  background-image: linear-gradient(var(--background), var(--background)),
+    linear-gradient(45deg, #81e6d9, #6b46c1);
+}
+
+/* Gaya untuk Item Roadmap */
+.roadmap-item {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.roadmap-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Gaya untuk Gradient Background Unicorn */
+.gradient-background-cs-unicorn {
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(78, 73, 73, 0.3) 100%);
+  transition: background 0.3s ease;
+}
+
+.gradient-background-cs-unicorn:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(78, 73, 73, 0.4) 100%);
+}
+
+/* Gaya untuk Developer Tools Section */
+.developer-tools-section {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.developer-tools-section h3 {
+  color: var(--accent); /* cyan-400 */
+}
+
+.developer-tools-section .tool-item {
+  background: #2d3748; /* gray-700 */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-tools-section .tool-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Gaya untuk Key Features */
+.key-features-section .feature-item {
+  background: #2d3748; /* gray-700 */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.key-features-section .feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Text Sizes dan Penyesuaian Mobile */
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.8rem;
+  }
+  p, a {
+    font-size: 1rem;
+  }
+
+  /* Nonaktifkan atau Kurangi Efek Glow dan Box Shadow pada Mobile */
+  .glow-border {
+    box-shadow: 0 0 5px rgba(11, 197, 234, 0.3);
+    background-image: linear-gradient(var(--background), var(--background)),
+      linear-gradient(45deg, var(--accent), #6b46c1);
+  }
+
+  .glow-border:hover {
+    box-shadow: 0 0 10px rgba(11, 197, 234, 0.5);
+    background-image: linear-gradient(var(--background), var(--background)),
+      linear-gradient(45deg, #81e6d9, #6b46c1);
+  }
+
+  /* Kurangi Efek Glow pada Tombol di Mobile */
+  .btn-glow {
+    box-shadow: 0 0 10px rgba(11, 197, 234, 0.4);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 15px rgba(11, 197, 234, 0.6);
+    transform: translateY(-1px);
+  }
+}
+
+/* Tambahan: Override Tailwind Utility Classes Jika Diperlukan */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+  color: #81e6d9; /* cyan-300 */
+  transform: scale(1.05);
+}
+
+/* Button Hover Enhancements */
+button:hover, a:hover {
+  transform: scale(1.05);
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: var(--foreground);
+  color: var(--background);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the text */
+  left: 50%;
+  margin-left: -80px; /* Use half of the width (160/2 = 80), to center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Fokus Efek pada Input Fields */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  /* Tailwind sudah mengatur focus ring, tetapi kita bisa tambahkan tambahan */
+  ring: 2px;
+  ring: var(--accent);
+}
+
+/* Smooth Transition for All Interactive Elementsss */
+button, input, textarea, select, a {
+  transition: all 0.3s ease-in-out;
+}
